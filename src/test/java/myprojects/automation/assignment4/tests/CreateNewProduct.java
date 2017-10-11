@@ -144,7 +144,8 @@ public class CreateNewProduct extends PageObject {
 
     public void waitTheElement(EventFiringWebDriver driver, WebElement element, int timeSec){
         WebDriverWait wait = new WebDriverWait(driver, timeSec);
-        wait.until(ExpectedConditions. elementToBeClickable(element));
+       // wait.until(ExpectedConditions. elementToBeClickable(element));
+        wait.until(ExpectedConditions. visibilityOfElementLocated((By) element));
     }
 
     public static String getFirstName() {
