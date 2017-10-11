@@ -38,8 +38,9 @@ public class CreateProductTest extends BaseTest {
     public void newProductFind(){
         driver.get(Properties.getBaseUrl());
         ShowTheProductList showList = new ShowTheProductList(driver);
-        showList.showAllProduct(CreateNewProduct.getFirstName(),CreateNewProduct.getFirstCount(), CreateNewProduct.getFirstPrice());
-        showList.openProduct();
+       // showList.showAllProduct(CreateNewProduct.getFirstName(),CreateNewProduct.getFirstCount(), CreateNewProduct.getFirstPrice());
+        showList.showAllProduct(CreateNewProduct.getFirstName());
+        showList.openProduct(CreateNewProduct.getFirstName(), CreateNewProduct.getFirstPrice());
     }
 
 }
