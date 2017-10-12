@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Products Management" verbose="1" >
-    <listeners>
+   <!-- <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
-
+    -->
     <parameter name="browsDefault"  value="chrome"/>
     <test name="Create New Product [Chrome]" >
         <classes>

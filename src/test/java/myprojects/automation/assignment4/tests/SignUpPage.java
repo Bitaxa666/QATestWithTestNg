@@ -1,5 +1,6 @@
 package myprojects.automation.assignment4.tests;
 
+import myprojects.automation.assignment4.utils.logging.CustomReporter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -39,6 +40,7 @@ public class SignUpPage extends PageObject {
             wait.until(ExpectedConditions.visibilityOf(this.password));
             this.password.clear();
             this.password.sendKeys(pwd);
+            CustomReporter.logAction("User is input all value");
         } catch (UnsupportedOperationException ue) {
             ue.printStackTrace();
             System.out.println("Doesn't login on admin panel");
@@ -48,5 +50,6 @@ public class SignUpPage extends PageObject {
     public void submitBtn(){
         wait.until(ExpectedConditions.visibilityOf(this.submitButton));
         this.submitButton.click();
+        CustomReporter.logAction("User is login");
     }
 }

@@ -1,5 +1,6 @@
 package myprojects.automation.assignment4.tests;
 
+import myprojects.automation.assignment4.utils.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -44,6 +45,13 @@ public class LogOut extends PageObject {
                 System.out.println("Can not find the logout button");
             }
             this.logOutBtn.click();
+            driver.navigate().to(Properties.getBaseUrl());
+            try {
+                Thread.sleep(3000);
+                driver.navigate().refresh();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println("Logout is successful");
         } catch (UnsupportedOperationException ue) {
             ue.printStackTrace();

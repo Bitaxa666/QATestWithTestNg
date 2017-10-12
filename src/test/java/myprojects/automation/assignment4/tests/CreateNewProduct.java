@@ -16,9 +16,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class CreateNewProduct extends PageObject {
 
-    private static String firstName;
-    private static String firstCount;
-    private static String firstPrice;
+//    public String firstName;
+//    public String firstCount;
+//    public String firstPrice;
+
 
     WebDriverWait wait = (WebDriverWait) new WebDriverWait(driver, 10).withMessage("Element was not found");
 
@@ -77,10 +78,7 @@ public class CreateNewProduct extends PageObject {
 
     public CreateNewProduct(EventFiringWebDriver driver) {
         super(driver);
-        ProductData.generate();
-        this.firstName = ProductData.generate().getName();
-        this.firstCount = String.valueOf(ProductData.generate().getQty());
-        this.firstPrice = ProductData.generate().getPrice();
+        //ProductData.generate();
             }
 
     public void markCatalogItem() {
@@ -102,7 +100,7 @@ public class CreateNewProduct extends PageObject {
         this.newProductBtn.click();
     }
 
-    public void newProductCreated(){
+    public void newProductCreated(String firstName, String firstCount, String firstPrice){
         waitTheElement(driver, logOutIcon2,5);
 
         this.newProductName.clear();
@@ -145,18 +143,7 @@ public class CreateNewProduct extends PageObject {
     public void waitTheElement(EventFiringWebDriver driver, WebElement element, int timeSec){
         WebDriverWait wait = new WebDriverWait(driver, timeSec);
        // wait.until(ExpectedConditions. elementToBeClickable(element));
-        wait.until(ExpectedConditions. visibilityOfElementLocated((By) element));
+        wait.until(ExpectedConditions. visibilityOf(element));
     }
 
-    public static String getFirstName() {
-        return firstName;
-    }
-
-    public static String getFirstCount() {
-        return firstCount;
-    }
-
-    public static String getFirstPrice() {
-        return firstPrice;
-    }
 }
